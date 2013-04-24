@@ -26,5 +26,8 @@ h5 { color:#2E96F7; }
 .ninesixtyoverlay .highlightborder {
 	border-style		: dashed;
 	border-color		: #ff3030;
-	border-width		: 2px;
+	border-width		: 1px;
+	-moz-box-sizing		: border-box;
+   	-webkit-box-sizing	: border-box;
+    	box-sizing		: border-box;
 }
