@@ -3,20 +3,18 @@ underpin.pagecontrols.base = $.klass({
     // gets the main container for the page
     getContainer : function()
     {
-        this.container = new Element('div', {'style' : 'width:950px;'}).inject($('main'));
+        this.parameters.container = new Element('div', {'style' : 'width:950px;'}).inject($('main'));
     },
 
     destroyPage : function(){
-        this.container.destroy();
-//        clearMessages();
+        this.parameters.container.destroy();
     },
 
     hidePage : function(){
-        this.container.hide();
-//        clearMessages();
+        this.parameters.container.hide();
     },
 
     showPage : function(){
-        this.container.show();
+        this.parameters.container.show();
     }
 });

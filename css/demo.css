@@ -17,17 +17,66 @@ h5 { color:#2E96F7; }
 .overlaybutton {
 	border-radius		: 5px;
 	background-color	: #0C60AF;
-	padding			: 10px;
+	padding-top		: 10px;
+	padding-bottom		: 10px;
 	cursor			: pointer;
 	text-align		: center;
 	color			: #ffffff;
 }
 
-.ninesixtyoverlay .highlightborder {
+.pagecontroloverlay .pagecontrolhighlight {
 	border-style		: dashed;
 	border-color		: #ff3030;
-	border-width		: 1px;
+	border-width		: 2px;
+/*
 	-moz-box-sizing		: border-box;
    	-webkit-box-sizing	: border-box;
     	box-sizing		: border-box;
+*/
+}
+
+.subpagecontroloverlay .subpagecontrolhighlight {
+	border-style		: dashed;
+	border-color		: #00B265;
+	border-width		: 2px;
+	-moz-box-sizing		: border-box;
+   	-webkit-box-sizing	: border-box;
+    	box-sizing		: border-box;
+}
+
+.navlink {
+	cursor			: pointer;
+	font-weight		: bold;
+	color			: #2EA2FA;
+	font-size		: 10pt;
+}
+
+.green {
+	background-color	: #C2E5B5;
+	height			: 150px;
+	margin-bottom		: 15px;
+}
+
+.blue {
+	background-color	: #B5CBE5;
+	height			: 150px;
+	margin-bottom		: 15px;
+}
+
+.red {
+	background-color	: #E5B5B5;
+	height			: 250px;
+	margin-bottom		: 15px;
+}
+
+.yellow {
+	background-color	: #E5E4B5;
+	height			: 250px;
+	margin-bottom		: 15px;
+}
+
+.orange {
+	background-color	: #E5D8B5;
+	height			: 250px;
+	margin-bottom		: 15px;
 }

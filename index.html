@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Underpin Javascript Structured Framework</title>
@@ -5,8 +6,9 @@
         <!-- EXTRA REQUIRED FILES -->
         <!-- req all controls -->
         <script src="/js/libraries/jquery.min.js"></script>
+	<script src="/js/libraries/underscore-min.js"></script>
         <script src="/js/libraries/lowpro.jquery.js"></script>
-<!--	<script src="/js/libraries/backbone-min.js"></script>-->
+	<script src="/js/libraries/backbone-min.js"></script>
 
 	<link rel="stylesheet" href="/css/libraries/960.css" />
 
@@ -21,14 +23,24 @@
 	<script src="/js/pagecontrols/base.js"></script>
 	<script src="/js/pagecontrols/header.js"></script>
 	<script src="/js/pagecontrols/main.js"></script>
+	<script src="/js/pagecontrols/sectionone.js"></script>
+	<script src="/js/pagecontrols/sectiontwo.js"></script>
+	<script src="/js/pagecontrols/info.js"></script>
 	<script src="/js/pagecontrols/footer.js"></script>
+	<script src="/js/subpagecontrols/blue.js"></script>
+	<script src="/js/subpagecontrols/green.js"></script>
+	<script src="/js/subpagecontrols/red.js"></script>
+	<script src="/js/subpagecontrols/yellow.js"></script>
+	<script src="/js/subpagecontrols/orange.js"></script>
 
 	<link rel="stylesheet" href="/css/demo.css" />	
 
 </head>
 <body>
 	<div id="parentcontainer" class="container_16 parentcontainer">
-		<div id="ninesixtyoverlay" class="overlaybutton">Show 960 Grid System Overlay</div>
+		<div id="pagecontroloverlay" class="grid_5 overlaybutton">Show Page Controls Outline</div>
+		<div class="grid_6">&nbsp;</div>
+		<div id="subpagecontroloverlay" class="grid_5 overlaybutton">Show Subpage Controls Outline</div>
 		<div id="header" class="container_16"></div>
 		<div id="main" class="container_16"></div>
 		<div id="footer" class="container_16"></div>
@@ -38,21 +50,34 @@
 
 <script language="javascript">
 $(document).ready(function(){
+	// load underpin controller
 	new underpin.controller({
 		'divHeader' 	: $('#header'),
 		'divMain' 	: $('#main'),
 		'divFooter'	: $('#footer')
 	});
 
-	$('#ninesixtyoverlay').bind('click', function(){
-		if ($('#parentcontainer').hasClass('ninesixtyoverlay')){
-			$('#parentcontainer').removeClass('ninesixtyoverlay');
-			$('#ninesixtyoverlay').html('Show 960 Grid System Overlay');
+	// define outline button click actions
+	$('#pagecontroloverlay').bind('click', function(){
+		if ($('#parentcontainer').hasClass('pagecontroloverlay')){
+			$('#parentcontainer').removeClass('pagecontroloverlay');
+			$('#pagecontroloverlay').html('Show Page Controls Outline');
 		}
 		else{
-			$('#parentcontainer').addClass('ninesixtyoverlay');
-			$('#ninesixtyoverlay').html('Hide 960 Grid System Overlay');
+			$('#parentcontainer').addClass('pagecontroloverlay');
+			$('#pagecontroloverlay').html('Hide Page Controls Outline');
 		}
 	});
+	$('#subpagecontroloverlay').bind('click', function(){
+		if ($('#parentcontainer').hasClass('subpagecontroloverlay')){
+			$('#parentcontainer').removeClass('subpagecontroloverlay');
+			$('#subpagecontroloverlay').html('Show Subpage Controls Outline');
+		}
+		else{
+			$('#parentcontainer').addClass('subpagecontroloverlay');
+			$('#subpagecontroloverlay').html('Hide Subpage Controls Outline');
+		}
+	});
+
 });
 </script>
