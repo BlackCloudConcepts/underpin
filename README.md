@@ -7,7 +7,8 @@ Underpin Javascript Structured Framework
 Requires:
 - jquery
 - lowpro.jquery
-- backbone
+- backbone.js
+- underscore.js
 - 960 grid
 
 Demo:
