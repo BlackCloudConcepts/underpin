@@ -8,6 +8,17 @@ underpin.controller = $.klass(underpin.base, {
 
 	load : function(){
 		var _this = this;
+
+		// load external templates
+		this.require_template('header-template');
+		this.require_template('footer-template');
+		this.require_template('info-template');
+		this.require_template('green-template');
+		this.require_template('blue-template');
+		this.require_template('yellow-template');
+		this.require_template('red-template');
+		this.require_template('orange-template');
+
 		// define sections
 		this.pcHeader = new underpin.pagecontrols.header({
 			'container' : this.parameters.divHeader,
@@ -66,6 +77,28 @@ underpin.controller = $.klass(underpin.base, {
                         _this.liveMain = _this.pcInfo;
 		});
 		Backbone.history.start();
+
+	},
+
+	require_template : function(templateName) {
+	    var template = $('#template_' + templateName);
+	    if (template.length === 0) {
+		var tmpl_dir = '/templates';
+		var tmpl_url = tmpl_dir + '/' + templateName + '.html';
+		var tmpl_string = '';
+
+		$.ajax({
+		    url: tmpl_url,
+		    method: 'GET',
+		    async: false,
+		    contentType: 'text',
+		    success: function (data) {
+			tmpl_string = data;
+		    }
+		});
+
+		$('head').append('<script id="'+ templateName + '" type="text/template">' + tmpl_string + '<\/script>');
+	    }
 	},
 
 	switchMain : function(page){

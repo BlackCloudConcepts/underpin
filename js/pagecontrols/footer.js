@@ -6,10 +6,10 @@ underpin.pagecontrols.footer = $.klass(underpin.pagecontrols.base, {
 	},
 
 	load : function(){
-		$('<hr>', {'class' : 'grid_16'}).appendTo(this.parameters.container); 
-		$('<div>', {'class' : 'grid_5'}).appendTo(this.parameters.container).html('&nbsp;');
-		$('<div>', {'class' : 'grid_6', 'style' : 'text-align:center;font-size:10pt;color:#0C60AF;'}).appendTo(this.parameters.container).html('Black Cloud Concepts : Scott Gay 2013');
-		$('<div>', {'class' : 'grid_5'}).appendTo(this.parameters.container).html('&nbsp;');
+
+		var template = _.template($('#footer-template').html());
+                this.parameters.container.html(template);
+
 	},
 
 	unload : function(){

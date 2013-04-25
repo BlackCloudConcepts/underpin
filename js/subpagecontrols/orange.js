@@ -5,7 +5,10 @@ underpin.subpagecontrols.orange = $.klass(underpin.subpagecontrols.base, {
 	},
 
 	load : function(){
-		$('<div>', {'class' : 'grid_5 orange'}).appendTo(this.parameters.container).html('&nbsp;').addClass('subpagecontrolhighlight');
+
+		var template = _.template($('#orange-template').html());
+		$('<div>').html(template).appendTo(this.parameters.container);
+
 	},
 
 	unload : function(){
