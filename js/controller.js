@@ -9,16 +9,6 @@ underpin.controller = $.klass(underpin.base, {
 	load : function(){
 		var _this = this;
 
-		// load external templates
-		this.require_template('header-template');
-		this.require_template('footer-template');
-		this.require_template('info-template');
-		this.require_template('green-template');
-		this.require_template('blue-template');
-		this.require_template('yellow-template');
-		this.require_template('red-template');
-		this.require_template('orange-template');
-
 		// define sections
 		this.pcHeader = new underpin.pagecontrols.header({
 			'container' : this.parameters.divHeader,
@@ -36,23 +26,28 @@ underpin.controller = $.klass(underpin.base, {
 		this.pcInfo = new underpin.pagecontrols.info({
 			'container' : this.parameters.divMain
 		});
+		this.pcSectionData = new underpin.pagecontrols.sectiondata({
+			'container' : this.parameters.divMain
+		});
 		this.pcFooter = new underpin.pagecontrols.footer({
 			'container' : this.parameters.divFooter
 		});
 
 		// load initial sections
 		this.pcHeader.load();
-		this.pcMain.load();
+//		this.pcMain.load();
 		this.pcFooter.load();
 		this.liveMain = this.pcMain;
 
 		// backbone routes
 		var Router = Backbone.Router.extend({
                 	routes: {
+				''		: 'sectionmain',
 				'sectionmain'   : 'sectionmain',
 				'sectionone'    : 'sectionone',
 				'sectiontwo'    : 'sectiontwo',
-				'sectioninfo'	: 'sectioninfo'
+				'sectioninfo'	: 'sectioninfo',
+				'sectiondata'	: 'sectiondata'
 			}
 		});
 		this.router = new Router();
@@ -76,29 +71,13 @@ underpin.controller = $.klass(underpin.base, {
                        	_this.pcInfo.load();
                         _this.liveMain = _this.pcInfo;
 		});
+		this.router.on('route:sectiondata', function(){
+			_this.liveMain.unload();
+			_this.pcSectionData.load();
+			_this.liveMain = _this.pcSectionData;
+		});
 		Backbone.history.start();
 
-	},
-
-	require_template : function(templateName) {
-	    var template = $('#template_' + templateName);
-	    if (template.length === 0) {
-		var tmpl_dir = '/templates';
-		var tmpl_url = tmpl_dir + '/' + templateName + '.html';
-		var tmpl_string = '';
-
-		$.ajax({
-		    url: tmpl_url,
-		    method: 'GET',
-		    async: false,
-		    contentType: 'text',
-		    success: function (data) {
-			tmpl_string = data;
-		    }
-		});
-
-		$('head').append('<script id="'+ templateName + '" type="text/template">' + tmpl_string + '<\/script>');
-	    }
 	},
 
 	switchMain : function(page){
@@ -114,6 +93,9 @@ underpin.controller = $.klass(underpin.base, {
 				break;
 			case 'info' : 
 				this.router.navigate('sectioninfo', {trigger:true});
+				break;
+			case 'sectiondata' : 
+				this.router.navigate('sectiondata', {trigger:true});
 				break;
 		}
 	},

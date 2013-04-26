@@ -2,12 +2,14 @@
 underpin.subpagecontrols.orange = $.klass(underpin.subpagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
+		this.getContainer();
 	},
 
 	load : function(){
+		this.require_template('orange-template');
 
 		var template = _.template($('#orange-template').html());
-		$('<div>').html(template).appendTo(this.parameters.container);
+		this.parameters.container.html(template);
 
 	},
 

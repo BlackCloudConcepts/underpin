@@ -2,12 +2,14 @@
 underpin.subpagecontrols.red = $.klass(underpin.subpagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
+		this.getContainer();
 	},
 
 	load : function(){
+		this.require_template('red-template');
 
 		var template = _.template($('#red-template').html());
-		$('<div>').html(template).appendTo(this.parameters.container);
+		this.parameters.container.html(template);
 
 	},
 

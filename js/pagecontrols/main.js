@@ -2,6 +2,7 @@
 underpin.pagecontrols.main = $.klass(underpin.pagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
+		this.getContainer();
 		this.parameters.container.addClass('pagecontrolhighlight');
 	},
 

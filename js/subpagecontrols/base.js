@@ -1,9 +1,9 @@
 // License: (MIT) Copyright (C) 2013 Scott Gay
-underpin.pagecontrols.base = $.klass(underpin.base, {
+underpin.subpagecontrols.base = $.klass(underpin.base, {
     // gets the main container for the page
     getContainer : function()
     {
-	// this creates a container for each page control
+	// this creates a container for each subpagecontrol
         this.parameters.container = $('<div>').appendTo(this.parameters.container);
     },
 

@@ -80,3 +80,9 @@ h5 { color:#2E96F7; }
 	height			: 250px;
 	margin-bottom		: 15px;
 }
+
+.error {
+	color			: #ff3030;
+	font-size		: 10pt;
+	font-weight		: bold;
+}
