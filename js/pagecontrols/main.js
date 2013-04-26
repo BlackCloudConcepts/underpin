@@ -2,29 +2,29 @@
 underpin.pagecontrols.main = $.klass(underpin.pagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
-		this.getContainer();
 		this.parameters.container.addClass('pagecontrolhighlight');
 	},
 
 	load : function(){
+		this.getContainer();
 		new underpin.subpagecontrols.blue({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 		new underpin.subpagecontrols.green({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 		new underpin.subpagecontrols.red({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 		new underpin.subpagecontrols.yellow({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 		new underpin.subpagecontrols.orange({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 	},
 
 	unload : function(){
-		this.parameters.container.empty();
+		this.destroyControl();
 	}
 });

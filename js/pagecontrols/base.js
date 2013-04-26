@@ -4,18 +4,18 @@ underpin.pagecontrols.base = $.klass(underpin.base, {
     getContainer : function()
     {
 	// this creates a container for each page control
-        this.parameters.container = $('<div>').appendTo(this.parameters.container);
+        this.container = $('<div>').appendTo(this.parameters.container);
     },
 
-    destroyPage : function(){
-        this.parameters.container.remove();
+    destroyControl : function(){
+        this.container.remove();
     },
 
     hidePage : function(){
-        this.parameters.container.hide();
+        this.container.hide();
     },
 
     showPage : function(){
-        this.parameters.container.show();
+        this.container.show();
     }
 });

@@ -2,36 +2,36 @@
 underpin.pagecontrols.sectiontwo = $.klass(underpin.pagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
-		this.getContainer();
 		this.parameters.container.addClass('pagecontrolhighlight');
 	},
 
 	load : function(){
-		$('<div>', {'class' : 'grid_4'}).appendTo(this.parameters.container).html('&nbsp;');
+		this.getContainer();
+		$('<div>', {'class' : 'grid_4'}).appendTo(this.container).html('&nbsp;');
 		new underpin.subpagecontrols.blue({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
-		$('<div>', {'class' : 'grid_4'}).appendTo(this.parameters.container).html('&nbsp;');
+		$('<div>', {'class' : 'grid_4'}).appendTo(this.container).html('&nbsp;');
 
 		new underpin.subpagecontrols.red({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 		new underpin.subpagecontrols.yellow({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 		new underpin.subpagecontrols.orange({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
 
-		$('<div>', {'class' : 'grid_4'}).appendTo(this.parameters.container).html('&nbsp;');
+		$('<div>', {'class' : 'grid_4'}).appendTo(this.container).html('&nbsp;');
 		new underpin.subpagecontrols.green({
-			'container' : this.parameters.container
+			'container' : this.container
 		}).load();
-		$('<div>', {'class' : 'grid_4'}).appendTo(this.parameters.container).html('&nbsp;');
+		$('<div>', {'class' : 'grid_4'}).appendTo(this.container).html('&nbsp;');
 
 	},
 
 	unload : function(){
-		this.parameters.container.empty();
+		this.destroyControl();
 	}
 });

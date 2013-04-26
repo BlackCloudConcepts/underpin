@@ -35,9 +35,8 @@ underpin.controller = $.klass(underpin.base, {
 
 		// load initial sections
 		this.pcHeader.load();
-//		this.pcMain.load();
 		this.pcFooter.load();
-		this.liveMain = this.pcMain;
+		this.liveMain = undefined;
 
 		// backbone routes
 		var Router = Backbone.Router.extend({
@@ -52,27 +51,32 @@ underpin.controller = $.klass(underpin.base, {
 		});
 		this.router = new Router();
 	        this.router.on('route:sectionmain', function(){ 
-			_this.liveMain.unload();
+			if (_this.liveMain != undefined)
+				_this.liveMain.unload();
                        	_this.pcMain.load();
                         _this.liveMain = _this.pcMain;
 		});
 		this.router.on('route:sectionone', function(){ 
-			_this.liveMain.unload();
+			if (_this.liveMain != undefined)
+				_this.liveMain.unload();
                        	_this.pcSectionOne.load();
                         _this.liveMain = _this.pcSectionOne;
 		});
 		this.router.on('route:sectiontwo', function(){ 
-			_this.liveMain.unload();
+			if (_this.liveMain != undefined)
+				_this.liveMain.unload();
                        	_this.pcSectionTwo.load();
                         _this.liveMain = _this.pcSectionTwo;
 		});
 		this.router.on('route:sectioninfo', function(){ 
-			_this.liveMain.unload();
+			if (_this.liveMain != undefined)
+				_this.liveMain.unload();
                        	_this.pcInfo.load();
                         _this.liveMain = _this.pcInfo;
 		});
 		this.router.on('route:sectiondata', function(){
-			_this.liveMain.unload();
+			if (_this.liveMain != undefined)
+				_this.liveMain.unload();
 			_this.pcSectionData.load();
 			_this.liveMain = _this.pcSectionData;
 		});

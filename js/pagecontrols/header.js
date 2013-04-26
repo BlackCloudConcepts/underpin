@@ -2,16 +2,16 @@
 underpin.pagecontrols.header = $.klass(underpin.pagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
-		this.getContainer();
 		this.parameters.container.addClass('pagecontrolhighlight');
 	},
 
 	load : function(){
 		var _this = this;
+		this.getContainer();
 		this.require_template('header-template');
 		
 		var template = _.template($('#header-template').html());
-                this.parameters.container.html(template);
+                this.container.html(template);
 
 		$('#mainlink').bind('click', function(){ _this.parameters.switchMain('main'); });
                 $('#sectiononelink').bind('click', function(){ _this.parameters.switchMain('sectionone'); });
@@ -21,6 +21,6 @@ underpin.pagecontrols.header = $.klass(underpin.pagecontrols.base, {
 	},
 
 	unload : function(){
-		this.parameters.container.empty();
+		this.destroyControl();
 	}
 });

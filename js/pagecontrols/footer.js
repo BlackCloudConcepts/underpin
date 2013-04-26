@@ -2,19 +2,19 @@
 underpin.pagecontrols.footer = $.klass(underpin.pagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
-		this.getContainer();
 		this.parameters.container.addClass('pagecontrolhighlight');
 	},
 
 	load : function(){
+		this.getContainer();
 		this.require_template('footer-template');
 
 		var template = _.template($('#footer-template').html());
-                this.parameters.container.html(template);
+                this.container.html(template);
 
 	},
 
 	unload : function(){
-		this.parameters.container.empty();
+		this.destroyControl();
 	}
 });

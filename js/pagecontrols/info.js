@@ -2,21 +2,20 @@
 underpin.pagecontrols.info = $.klass(underpin.pagecontrols.base, {
 	initialize : function(parameters){
 		this.parameters = parameters;
-		this.getContainer();
 		this.parameters.container.addClass('pagecontrolhighlight');
 	},
 
 	load : function(){
-
+		this.getContainer();
 		this.require_template('info-template');
 
 		var template = _.template($('#info-template').html());
-                this.parameters.container.html(template);
+                this.container.html(template);
 
 
 	},
 
 	unload : function(){
-		this.parameters.container.empty();
+		this.destroyControl();
 	}
 });
