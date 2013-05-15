@@ -23,11 +23,11 @@ underpin.base = $.klass({
 		var callback = request.callback;
 		var failcallback = request.failcallback;
 
-		var apiURL = "http://198.58.106.192:8126";
+		var apiURL = "http://96.126.120.64:8126";
 
 		$.ajax({
 			type: "POST",
-			url: apiURL+"?random=" + this.getRandomNumber,
+			url: apiURL+"?random=" + this.getRandomNumber(),
 			data: "action=" + action + "&collection=" + collection,
 			dataType: "jsonp",
 			success: function(data, status){
